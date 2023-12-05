@@ -1,7 +1,6 @@
 package d5
 
 import (
-	"bytes"
 	"fmt"
 	"os"
 	"strconv"
@@ -9,20 +8,6 @@ import (
 
 	"github.com/jackinthebox52/aoc23/utils"
 )
-
-func ReadLines() ([]string, error) {
-	lines, err := utils.ReadFileRaw(5, "input")
-	if err != nil {
-		return nil, err
-	}
-	var buf bytes.Buffer
-	buf.Write(lines)
-	var res []string
-	for _, s := range strings.Split(buf.String(), "\n") {
-		res = append(res, s)
-	}
-	return res, nil
-}
 
 type Range struct {
 	dst_start int
@@ -33,7 +18,7 @@ type Range struct {
 type Map []Range
 
 func Solve1() int {
-	lines, err := ReadLines()
+	lines, err := utils.ReadLines(5, "input")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -44,7 +29,7 @@ func Solve1() int {
 }
 
 func Solve2() int {
-	lines, err := ReadLines()
+	lines, err := utils.ReadLines(5, "input")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -136,5 +121,3 @@ func calculateSmallestLocation(seeds []int, maps []Map) int {
 
 	return smallest
 }
-
-func TestSolve1()
