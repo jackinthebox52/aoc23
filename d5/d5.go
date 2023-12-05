@@ -136,3 +136,5 @@ func calculateSmallestLocation(seeds []int, maps []Map) int {
 
 	return smallest
 }
+
+func TestSolve1()
